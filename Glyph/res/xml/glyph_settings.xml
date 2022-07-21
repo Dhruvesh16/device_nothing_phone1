@@ -18,7 +18,12 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/glyph_settings_title">
+
+    <com.android.settingslib.widget.IllustrationPreference
+            android:key="glyphs_header"
+            app:lottie_rawRes="@drawable/glyphs_header"/>
 
     <com.android.settingslib.widget.MainSwitchPreference
         android:defaultValue="false"
