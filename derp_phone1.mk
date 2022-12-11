@@ -17,6 +17,9 @@ $(call inherit-product, vendor/derp/config/common_full_phone.mk)
 # Inherit some common DerpFest stuff
 EXTRA_UDFPS_ANIMATIONS := true
 
+# Official-ify
+DERP_BUILDTYPE := Official
+
 # Bootanimation resolution.
 TARGET_BOOT_ANIMATION_RES := 1080
 
