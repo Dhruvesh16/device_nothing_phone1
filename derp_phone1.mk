@@ -14,6 +14,9 @@ $(call inherit-product, device/nothing/phone1/device.mk)
 # Inherit from the Nameless AOSP configuration.
 $(call inherit-product, vendor/derp/config/common_full_phone.mk)
 
+# Inherit some common DerpFest stuff
+EXTRA_UDFPS_ANIMATIONS := true
+
 # Bootanimation resolution.
 TARGET_BOOT_ANIMATION_RES := 1080
 
