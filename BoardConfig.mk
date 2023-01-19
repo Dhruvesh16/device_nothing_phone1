@@ -75,6 +75,9 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
 
+# Camera
+TARGET_USES_NOTHING_CAMERA := true
+
 # Display
 include hardware/qcom-caf/sm8350/display/config/display-board.mk
 
