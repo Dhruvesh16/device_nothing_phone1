@@ -41,7 +41,7 @@ public class FlipToGlyphSensor implements SensorEventListener {
     private Sensor mSensorAccelerometer;
     private Context mContext;
 
-    private Duration mTimeThreshold = Duration.ofMillis(1_000L);;
+    private Duration mTimeThreshold = Duration.ofMillis(500);
     private float mAccelerationThreshold = 0.2f;
     private float mZAccelerationThreshold = -9.5f;
     private float mZAccelerationThresholdLenient = mZAccelerationThreshold + 1.0f;
