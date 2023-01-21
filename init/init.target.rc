@@ -98,6 +98,13 @@ on post-fs-data
     # Enable WLAN cold boot calibration
     write /sys/devices/platform/soc/b0000000.qcom,cnss-qca6490/fs_ready 1
 
+    # Boot led effect placeholder
+on property:service.bootanim.exit=0
+   write /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/bootan_leds_effect 1
+
+on property:service.bootanim.exit=1
+   write /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/bootan_leds_effect 0
+
 on early-boot
     start vendor.sensors
     verity_update_state
@@ -142,6 +149,10 @@ on boot
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki qca_cld3_wlan qca_cld3_qca6390
     #Allow access to memory hotplug device attributes
     chown system system /sys/kernel/mem-offline/anon_migrate
+
+    # Glyph
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/vline_leds_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/dot_led_br
 
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
