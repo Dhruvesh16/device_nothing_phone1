@@ -19,13 +19,13 @@ package com.derp.glyph.Settings;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.Switch;
 
+import androidx.annotation.NonNull;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
@@ -33,7 +33,6 @@ import com.android.internal.util.ArrayUtils;
 import com.android.settingslib.widget.MainSwitchPreference;
 import com.android.settingslib.widget.OnMainSwitchChangeListener;
 
-import java.util.Collections;
 import java.util.List;
 
 import com.derp.glyph.R;
@@ -41,35 +40,26 @@ import com.derp.glyph.Constants.Constants;
 import com.derp.glyph.Manager.SettingsManager;
 import com.derp.glyph.Utils.ServiceUtils;
 
-public class NotifsSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener,
+public class NotifsSettingsFragment extends PreferenceFragmentCompat implements OnPreferenceChangeListener,
         OnMainSwitchChangeListener {
-
-    private PreferenceScreen mScreen;
-
-    private MainSwitchPreference mSwitchBar;
-    private PreferenceCategory mCategory;
-
-    private List<ApplicationInfo> mApps;
-    private PackageManager mPackageManager;
-
-    private Handler mHandler = new Handler();
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.glyph_notifs_settings);
 
-        mScreen = this.getPreferenceScreen();
-        getActivity().setTitle(R.string.glyph_settings_notifs_toggle_title);
+        PreferenceScreen mScreen = this.getPreferenceScreen();
+        requireActivity().setTitle(R.string.glyph_settings_notifs_toggle_title);
 
-        mSwitchBar = (MainSwitchPreference) findPreference(Constants.GLYPH_NOTIFS_SUB_ENABLE);
+        MainSwitchPreference mSwitchBar = (MainSwitchPreference) findPreference(Constants.GLYPH_NOTIFS_SUB_ENABLE);
+        assert mSwitchBar != null;
         mSwitchBar.addOnSwitchChangeListener(this);
-        mSwitchBar.setChecked(SettingsManager.isGlyphNotifsEnabled(getActivity()));
+        mSwitchBar.setChecked(SettingsManager.isGlyphNotifsEnabled(requireActivity()));
 
-        mCategory = (PreferenceCategory) findPreference(Constants.GLYPH_NOTIFS_SUB_CATEGORY);
+        PreferenceCategory mCategory = (PreferenceCategory) findPreference(Constants.GLYPH_NOTIFS_SUB_CATEGORY);
 
-        mPackageManager = getActivity().getPackageManager();
-        mApps = mPackageManager.getInstalledApplications(PackageManager.GET_GIDS);
-        Collections.sort(mApps, new ApplicationInfo.DisplayNameComparator(mPackageManager));
+        PackageManager mPackageManager = requireActivity().getPackageManager();
+        List<ApplicationInfo> mApps = mPackageManager.getInstalledApplications(PackageManager.GET_GIDS);
+        mApps.sort(new ApplicationInfo.DisplayNameComparator(mPackageManager));
         for (ApplicationInfo app : mApps) {
             if(mPackageManager.getLaunchIntentForPackage(app.packageName) != null  && !ArrayUtils.contains(Constants.APPSTOIGNORE, app.packageName)) { // apps with launcher intent
                 SwitchPreference mSwitchPreference = new SwitchPreference(mScreen.getContext());
@@ -78,21 +68,21 @@ public class NotifsSettingsFragment extends PreferenceFragment implements OnPref
                 mSwitchPreference.setIcon(app.loadIcon(mPackageManager));
                 mSwitchPreference.setDefaultValue(true);
                 mSwitchPreference.setOnPreferenceChangeListener(this);
+                assert mCategory != null;
                 mCategory.addPreference(mSwitchPreference);
             }
         }
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(@NonNull Preference preference, Object newValue) {
         //mHandler.post(() -> ServiceUtils.checkGlyphService(getActivity()));
-
         return true;
     }
 
     @Override
     public void onSwitchChanged(Switch switchView, boolean isChecked) {
-        SettingsManager.setGlyphNotifsEnabled(getActivity(), isChecked);
+        SettingsManager.setGlyphNotifsEnabled(requireActivity(), isChecked);
         ServiceUtils.checkGlyphService(getActivity());
     }
 

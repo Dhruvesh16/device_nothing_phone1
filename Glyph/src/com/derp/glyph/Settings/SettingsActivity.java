@@ -18,7 +18,6 @@
 
 package com.derp.glyph.Settings;
 
-import android.app.Fragment;
 import android.os.Bundle;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
@@ -26,21 +25,16 @@ import com.android.settingslib.widget.R;
 
 public class SettingsActivity extends CollapsingToolbarBaseActivity {
 
-    private SettingsFragment mSettingsFragment;
     private static final String TAG_GLYPH = "glyph";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.content_frame);
-        if (fragment == null) {
-            mSettingsFragment = new SettingsFragment();
-            getFragmentManager().beginTransaction()
+        SettingsFragment mSettingsFragment = new SettingsFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
                 .add(R.id.content_frame, mSettingsFragment, TAG_GLYPH)
                 .commit();
-        } else {
-            mSettingsFragment = (SettingsFragment) fragment;
-        }
     }
 }

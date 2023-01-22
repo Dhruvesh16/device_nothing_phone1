@@ -18,19 +18,12 @@ package com.derp.glyph.Constants;
 
 public final class Constants {
 
-    private static final String TAG = "GlyphConstants";
-    private static final boolean DEBUG = true;
-
     public static int BRIGHTNESS = 4095;
-    public static int BRIGHTNESS_MIN = 0;
-    public static int BRIGHTNESS_MAX = 4095;
 
     public static final String GLYPH_ENABLE = "glyph_enable";
     public static final String GLYPH_FLIP_ENABLE = "glyph_settings_flip_toggle";
     public static final String GLYPH_BRIGHTNESS = "glyph_settings_brightness";
-    public static final String GLYPH_CHARGING_CATEGORY = "glyph_settings_charging";
     public static final String GLYPH_CHARGING_LEVEL_ENABLE = "glyph_settings_charging_level";
-    public static final String GLYPH_CALL_CATEGORY = "glyph_settings_call";
     public static final String GLYPH_CALL_ENABLE = "glyph_settings_call_toggle";
     public static final String GLYPH_NOTIFS_ENABLE = "glyph_settings_notifs_toggle";
     public static final String GLYPH_NOTIFS_SUB_CATEGORY = "glyph_settings_notifs_sub";
@@ -42,7 +35,6 @@ public final class Constants {
     public static final String CENTERRINGLEDPATH =  BASELEDPATH + "round_leds_br";               // Center Ring Section
     public static final String EXCLAMATIONBARLEDPATH =  BASELEDPATH + "vline_leds_br";           // Exclamation Mark Bar
     public static final String EXCLAMATIONDOTLEDPATH =  BASELEDPATH + "dot_led_br";              // Exclamation Mark Dot
-    public static final String EXCLAMATIONMARKLEDPATH =  BASELEDPATH + "horse_race_leds_br";     // Exclamation Mark Full
     public static final String SINGLELEDPATH =  BASELEDPATH + "single_led_br";                   // Single LED
     public static final String SLANTLEDPATH =  BASELEDPATH + "front_cam_led_br";                 // Slanting Line
 

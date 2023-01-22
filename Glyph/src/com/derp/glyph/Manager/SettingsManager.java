@@ -18,7 +18,6 @@ package com.derp.glyph.Manager;
 
 import android.content.Context;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.preference.PreferenceManager;
 
@@ -26,11 +25,8 @@ import com.derp.glyph.Constants.Constants;
 
 public final class SettingsManager {
 
-    private static final String TAG = "GlyphSettingsManager";
-    private static final boolean DEBUG = true;
-
-    public static boolean enableGlyph(Context context, boolean enable) {
-        return Settings.Secure.putInt(context.getContentResolver(),
+    public static void enableGlyph(Context context, boolean enable) {
+        Settings.Secure.putInt(context.getContentResolver(),
                 Constants.GLYPH_ENABLE, enable ? 1 : 0);
     }
 
@@ -74,8 +70,8 @@ public final class SettingsManager {
                 Constants.GLYPH_NOTIFS_ENABLE, 1) != 0 && isGlyphEnabled(context);
     }
 
-    public static boolean setGlyphNotifsEnabled(Context context, boolean enable) {
-        return Settings.Secure.putInt(context.getContentResolver(),
+    public static void setGlyphNotifsEnabled(Context context, boolean enable) {
+        Settings.Secure.putInt(context.getContentResolver(),
                 Constants.GLYPH_NOTIFS_ENABLE, enable ? 1 : 0);
     }
 

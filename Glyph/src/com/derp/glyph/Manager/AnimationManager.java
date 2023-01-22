@@ -17,23 +17,14 @@
 package com.derp.glyph.Manager;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.util.Log;
 
-import androidx.preference.PreferenceManager;
-
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
-import com.derp.glyph.R;
 import com.derp.glyph.Constants.Constants;
-import com.derp.glyph.Manager.StatusManager;
 import com.derp.glyph.Utils.FileUtils;
 
 public final class AnimationManager {
@@ -41,22 +32,22 @@ public final class AnimationManager {
     private static final String TAG = "GlyphAnimationManager";
     private static final boolean DEBUG = true;
 
-    private static Future<?> submit(Runnable runnable) {
+    private static void submit(Runnable runnable) {
         ExecutorService mExecutorService = Executors.newSingleThreadExecutor();
-        return mExecutorService.submit(runnable);
+        mExecutorService.submit(runnable);
     }
 
     private static boolean check(String name, boolean wait) {
-        if (DEBUG) Log.d(TAG, "Playing animation | name: " + name + " | waiting: " + Boolean.toString(wait));
+        if (DEBUG) Log.d(TAG, "Playing animation | name: " + name + " | waiting: " + wait);
 
         if (StatusManager.isAllLedActive()) {
             if (DEBUG) Log.d(TAG, "All LEDs are active, exiting animation | name: " + name);
-            return false;
+            return true;
         }
 
         if (StatusManager.isCallLedActive()) {
             if (DEBUG) Log.d(TAG, "Call animation ist currently active, exiting animation | name: " + name);
-            return false;
+            return true;
         }
 
         if (StatusManager.isAnimationActive()) {
@@ -64,15 +55,15 @@ public final class AnimationManager {
                 if (DEBUG) Log.d(TAG, "There is already an animation playing, wait | name: " + name);
                 long start = System.currentTimeMillis();
                 while (StatusManager.isAnimationActive()){
-                    if (System.currentTimeMillis() - start >= 2500 ) return false;
+                    if (System.currentTimeMillis() - start >= 2500 ) return true;
                 }
             } else {
                 if (DEBUG) Log.d(TAG, "There is already an animation playing, exiting | name: " + name);
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     public static void playCsv(String name, Context context) {
@@ -82,7 +73,7 @@ public final class AnimationManager {
     public static void playCsv(String name, boolean wait, Context context) {
         submit(() -> {
 
-            if (!check(name, wait))
+            if (check(name, wait))
                 return;
 
             StatusManager.setAnimationActive(true);
@@ -116,10 +107,10 @@ public final class AnimationManager {
         });
     }
 
-    public static void playCharging(int batteryLevel, Context context) {
+    public static void playCharging(int batteryLevel) {
         submit(() -> {
             
-            if (!check("charging", true))
+            if (check("charging", true))
                 return;
 
             StatusManager.setAnimationActive(true);
@@ -175,7 +166,7 @@ public final class AnimationManager {
 
             StatusManager.setCallLedEnabled(true);
 
-            if (!check("call: " + name, true))
+            if (check("call: " + name, true))
                 return;
 
             StatusManager.setCallLedActive(true);
@@ -200,7 +191,7 @@ public final class AnimationManager {
                 } finally {
                     if (StatusManager.isAllLedActive()) {
                         if (DEBUG) Log.d(TAG, "All LED active, pause playing animation | name: " + name);
-                        while (StatusManager.isAllLedActive()) {};
+                        while (StatusManager.isAllLedActive()) {}
                     }
                 }
             }

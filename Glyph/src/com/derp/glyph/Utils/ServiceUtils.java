@@ -41,7 +41,7 @@ public final class ServiceUtils {
                 UserHandle.CURRENT);
     }
 
-    protected static void stopCallReceiverService(Context context) {
+    private static void stopCallReceiverService(Context context) {
         if (DEBUG) Log.d(TAG, "Stopping Glyph call receiver service");
         context.stopServiceAsUser(new Intent(context, CallReceiverService.class),
                 UserHandle.CURRENT);
@@ -53,7 +53,7 @@ public final class ServiceUtils {
                 UserHandle.CURRENT);
     }
 
-    protected static void stopChargingService(Context context) {
+    private static void stopChargingService(Context context) {
         if (DEBUG) Log.d(TAG, "Stopping Glyph charging service");
         context.stopServiceAsUser(new Intent(context, ChargingService.class),
                 UserHandle.CURRENT);
@@ -65,7 +65,7 @@ public final class ServiceUtils {
                 UserHandle.CURRENT);
     }
 
-    protected static void stopFlipToGlyphService(Context context) {
+    private static void stopFlipToGlyphService(Context context) {
         if (DEBUG) Log.d(TAG, "Stopping Flip to Glyph service");
         context.stopServiceAsUser(new Intent(context, FlipToGlyphService.class),
                 UserHandle.CURRENT);
@@ -77,7 +77,7 @@ public final class ServiceUtils {
                 UserHandle.CURRENT);
     }
 
-    protected static void stopNotificationService(Context context) {
+    private static void stopNotificationService(Context context) {
         if (DEBUG) Log.d(TAG, "Stopping Glyph notifs service");
         context.stopServiceAsUser(new Intent(context, NotificationService.class),
                 UserHandle.CURRENT);

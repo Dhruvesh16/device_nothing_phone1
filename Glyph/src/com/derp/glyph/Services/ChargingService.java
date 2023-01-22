@@ -27,9 +27,7 @@ import android.os.BatteryManager;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.derp.glyph.Constants.Constants;
 import com.derp.glyph.Manager.AnimationManager;
-import com.derp.glyph.Utils.FileUtils;
 
 public class ChargingService extends Service {
 
@@ -86,10 +84,10 @@ public class ChargingService extends Service {
     }
 
     private void playChargingAnimation() {
-        AnimationManager.playCharging(getBatteryLevel(), this);
-    };
+        AnimationManager.playCharging(getBatteryLevel());
+    }
 
-    private BroadcastReceiver mPowerMonitor = new BroadcastReceiver() {
+    private final BroadcastReceiver mPowerMonitor = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {

@@ -38,13 +38,10 @@ public class GlyphTileServiceActivity extends Activity {
         super.onCreate(savedInstanceState);
         ComponentName sourceClass = getIntent().getParcelableExtra(Intent.EXTRA_COMPONENT_NAME);
         if (DEBUG) Log.d(TAG, "sourceClass: " + sourceClass.getClassName());
-        switch (sourceClass.getClassName()) {
-            case "com.derp.glyph.Services.GlyphTileService":
-                openActivitySafely(new Intent(this, SettingsActivity.class));
-                break;
-            default:
-                finish();
-                break;
+        if ("com.derp.glyph.Services.GlyphTileService".equals(sourceClass.getClassName())) {
+            openActivitySafely(new Intent(this, SettingsActivity.class));
+        } else {
+            finish();
         }
     }
 
