@@ -12,6 +12,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="maintainer_name">Dhruvesh (@dhruvesh_23)</string>
+    <string name="spark_maintainer">Dhruvesh (@dhruvesh_23)</string>
 
 </resources>

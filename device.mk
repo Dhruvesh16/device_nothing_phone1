@@ -336,9 +336,9 @@ PRODUCT_PACKAGES += \
     QSSITelephony \
     QSSIWifi
 
-# Overlay Derp 
+# Overlay Spark
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-derp
+    $(LOCAL_PATH)/overlay-spark
 
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
