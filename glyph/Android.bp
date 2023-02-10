@@ -19,7 +19,7 @@ android_app {
     static_libs: [
         "androidx.core_core",
         "androidx.preference_preference",
-        "org.custom.settings.resources",
+        "org.lineageos.settings.resources",
     ],
 
     optimize: {
