@@ -99,6 +99,9 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# OTA
+TARGET_OTA_ASSERT_DEVICE := Spacewar,spacewar
+
 # Kernel
 BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
