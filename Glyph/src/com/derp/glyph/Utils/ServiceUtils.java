@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Utils;
+package com.derp.glyph.Utils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
 import android.util.Log;
 
-import co.aospa.glyph.Constants.Constants;
-import co.aospa.glyph.Manager.SettingsManager;
-import co.aospa.glyph.Services.CallReceiverService;
-import co.aospa.glyph.Services.ChargingService;
-import co.aospa.glyph.Services.FlipToGlyphService;
-import co.aospa.glyph.Services.NotificationService;
+import com.derp.glyph.Constants.Constants;
+import com.derp.glyph.Manager.SettingsManager;
+import com.derp.glyph.Services.CallReceiverService;
+import com.derp.glyph.Services.ChargingService;
+import com.derp.glyph.Services.FlipToGlyphService;
+import com.derp.glyph.Services.NotificationService;
 
 public final class ServiceUtils {
 

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Settings;
+package com.derp.glyph.Settings;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Services;
+package com.derp.glyph.Services;
 
 import android.app.Service;
 import android.content.Context;
@@ -25,12 +25,12 @@ import android.media.AudioManager;
 import android.os.IBinder;
 import android.util.Log;
 
-import co.aospa.glyph.Constants.Constants;
-import co.aospa.glyph.Manager.AnimationManager;
-import co.aospa.glyph.Manager.SettingsManager;
-import co.aospa.glyph.Manager.StatusManager;
-import co.aospa.glyph.Sensors.FlipToGlyphSensor;
-import co.aospa.glyph.Utils.FileUtils;
+import com.derp.glyph.Constants.Constants;
+import com.derp.glyph.Manager.AnimationManager;
+import com.derp.glyph.Manager.SettingsManager;
+import com.derp.glyph.Manager.StatusManager;
+import com.derp.glyph.Sensors.FlipToGlyphSensor;
+import com.derp.glyph.Utils.FileUtils;
 
 public class FlipToGlyphService extends Service {
 

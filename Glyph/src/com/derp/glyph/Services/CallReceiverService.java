@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Services;
+package com.derp.glyph.Services;
 
 import android.app.Service;
 import android.content.Context;
@@ -27,7 +27,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import co.aospa.glyph.Manager.AnimationManager;
+import com.derp.glyph.Manager.AnimationManager;
 
 public class CallReceiverService extends Service {
 

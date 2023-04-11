@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Utils;
+package com.derp.glyph.Utils;
 
 import android.util.Log;
 
@@ -26,7 +26,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import co.aospa.glyph.Constants.Constants;
+import com.derp.glyph.Constants.Constants;
 
 public final class FileUtils {
 

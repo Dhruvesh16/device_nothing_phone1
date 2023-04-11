@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Manager;
+package com.derp.glyph.Manager;
 
 import android.content.Context;
 import android.provider.Settings;
@@ -31,10 +31,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import co.aospa.glyph.R;
-import co.aospa.glyph.Constants.Constants;
-import co.aospa.glyph.Manager.StatusManager;
-import co.aospa.glyph.Utils.FileUtils;
+import com.derp.glyph.R;
+import com.derp.glyph.Constants.Constants;
+import com.derp.glyph.Manager.StatusManager;
+import com.derp.glyph.Utils.FileUtils;
 
 public final class AnimationManager {
 

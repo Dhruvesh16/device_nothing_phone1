@@ -209,8 +209,8 @@ PRODUCT_COPY_FILES += \
 
 # Paranoid Glyph
 PRODUCT_PACKAGES += \
-    ParanoidGlyph
-    
+    DerpfestGlyph
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \

@@ -16,16 +16,16 @@
  * limitations under the License.
  */
 
-package co.aospa.glyph.Services;
+package com.derp.glyph.Services;
 
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
-import co.aospa.glyph.R;
-import co.aospa.glyph.Constants.Constants;
-import co.aospa.glyph.Manager.StatusManager;
-import co.aospa.glyph.Utils.FileUtils;
+import com.derp.glyph.R;
+import com.derp.glyph.Constants.Constants;
+import com.derp.glyph.Manager.StatusManager;
+import com.derp.glyph.Utils.FileUtils;
 
 /** Quick settings tile: Glyph **/
 public class GlyphTileService extends TileService {
