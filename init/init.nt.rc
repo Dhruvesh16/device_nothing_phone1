@@ -34,8 +34,39 @@ on boot
     chown system system /sys/class/spi_master/spi0/spi0.0/fts_gesture_fod_pressed
     chown system system /sys/class/spi_master/spi0/spi0.0/fts_gesture_single_tap_pressed
 
-    # Glyph LEDs
-    chown system system /sys/class/leds/aw210xx_led/single_led_br
+    # Glyph
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/all_leds_effect
+    chmod 0666 /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/all_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/all_white_leds_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/glo_current
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/rear_cam_led_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/front_cam_led_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/horse_race_leds_br
+    chmod 0666 /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/horse_race_leds_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/round_leds_br
+    chmod 0666 /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/round_leds_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/single_led_br
+    chmod 0666 /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/single_led_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/round_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/horse_race_leds
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/wired_charging_leds
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/random_delay
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/random_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/keybd_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/wlr_charging_leds
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/video_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/ga_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/nf_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/bootan_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/rear_cam_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/music_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/ringtone_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/flip_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/exclamation_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/setting_leds_effect
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/setting_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/vline_leds_br
+    chown system system /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/dot_led_br
 
 on property:sys.boot_completed=1
     # Camera
@@ -43,6 +74,13 @@ on property:sys.boot_completed=1
     copy /mnt/vendor/persist/camera/ois_caldata_wide_persist.bin /data/vendor/camera/ois_caldata_wide_persist.bin
     chown cameraserver audio /data/vendor/camera/bokeh_caldata_uw_persist.bin
     chown cameraserver audio /data/vendor/camera/ois_caldata_wide_persist.bin
+
+    # Boot led effect placeholder
+on property:service.bootanim.exit=0
+   write /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/bootan_leds_effect 1
+
+on property:service.bootanim.exit=1
+   write /sys/devices/platform/soc/984000.i2c/i2c-0/0-0020/leds/aw210xx_led/bootan_leds_effect 0
 
     # Health
     restart health-hal-2-1
