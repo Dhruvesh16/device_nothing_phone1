@@ -346,11 +346,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Perf
+PRODUCT_PACKAGES += \
+    libpsi.vendor \
+    libtflite
+
+# Perf Jars
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
-    android.hardware.power@1.3.vendor \
-    vendor.qti.hardware.perf@2.2.vendor
+    android.hardware.power@1.3.vendor
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -401,6 +410,10 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/nxp/nfc
 
+# Task profiles
+PRODUCT_COPY_FILES += \
+    system/core/libprocessgroup/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
@@ -430,6 +443,7 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0 \
     android.hardware.thermal@2.0.vendor
 
 # Update engine
