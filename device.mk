@@ -236,6 +236,7 @@ PRODUCT_PACKAGES += \
     fstab.default.vendor_ramdisk \
     init.class_main.sh \
     init.nt.rc \
+    init.phone1.perf.rc \
     init.qti.media.sh \
     init.qcom.early_boot.sh \
     init.qcom.rc \
