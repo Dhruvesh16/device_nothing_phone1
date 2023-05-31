@@ -5,4 +5,5 @@
 #
 
 BOARD_VENDOR_SEPOLICY_DIRS += device/nothing/phone1/sepolicy/vendor
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += device/nothing/phone1/sepolicy/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/nothing/phone1/sepolicy/private
