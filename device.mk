@@ -285,6 +285,7 @@ PRODUCT_PACKAGES += \
 # NFC
 PRODUCT_PACKAGES += \
     NfcNci \
+    SpacewarNfc \
     SecureElement \
     Tag \
     android.hardware.nfc@1.2-service
