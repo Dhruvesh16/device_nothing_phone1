@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/derp_phone1.mk
+    $(LOCAL_DIR)/ancient_phone1.mk
 
 COMMON_LUNCH_CHOICES := \
-    derp_phone1-eng \
-    derp_phone1-user \
-    derp_phone1-userdebug
+    ancient_phone1-eng \
+    ancient_phone1-user \
+    ancient_phone1-userdebug
