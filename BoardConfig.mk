@@ -77,6 +77,7 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 
 # Camera
 TARGET_USES_NOTHING_CAMERA := true
+TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED := true
 
 # Display
 include hardware/qcom-caf/sm8350/display/config/display-board.mk
