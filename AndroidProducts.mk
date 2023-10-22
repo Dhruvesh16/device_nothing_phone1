@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/ancient_phone1.mk
+    $(LOCAL_DIR)/spark_phone1.mk
 
 COMMON_LUNCH_CHOICES := \
-    ancient_phone1-eng \
-    ancient_phone1-user \
-    ancient_phone1-userdebug
+    spark_phone1-eng \
+    spark_phone1-user \
+    spark_phone1-userdebug
