@@ -480,7 +480,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
+    android.hardware.wifi-service \
     android.hardware.wifi.hostapd@1.0.vendor \
     hostapd \
     libwpa_client \
@@ -504,6 +504,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
+    libprotobuf-cpp-full-3.9.1-vendorcompat
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/nothing/phone1/phone1-vendor.mk)
