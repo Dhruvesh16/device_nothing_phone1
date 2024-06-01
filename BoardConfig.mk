@@ -99,6 +99,9 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# Lineage Health
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/qcom-battery/charging_en
+
 # Kernel
 BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
