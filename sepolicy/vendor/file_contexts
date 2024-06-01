@@ -43,3 +43,6 @@
 
 # Libperf
 /vendor/bin/hw/android\.hardware\.power-service\.nothing-libperfmgr   u:object_r:hal_power_default_exec:s0
+
+# Power Share 
+/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.nothing                    u:object_r:hal_lineage_powershare_default_exec:s0
