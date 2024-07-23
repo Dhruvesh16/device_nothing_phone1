@@ -130,6 +130,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64 \
     libcamera_metadata_shim \
     vendor.qti.hardware.camera.device@1.0.vendor \
+    libutilscallstack.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -155,6 +156,7 @@ PRODUCT_PACKAGES += \
     libmemutils \
     libqdMetaData \
     libqdMetaData.system \
+    libpng.vendor:32 \
     libsdmcore \
     libsdmutils \
     libtinyxml \
@@ -373,9 +375,11 @@ PRODUCT_PACKAGES += \
 
 # QMI
 PRODUCT_PACKAGES += \
+    libcurl.vendor:64 \
     libjson \
+    libjsoncpp.vendor \
     libqti_vndfwk_detect.vendor \
-    libstdc++_vendor \
+    libsqlite.vendor:64 \
     libvndfwk_detect_jni.qti.vendor
 
 # QTI service tracker
