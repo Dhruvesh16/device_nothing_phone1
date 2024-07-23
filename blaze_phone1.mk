@@ -12,17 +12,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/nothing/phone1/device.mk)
 
 # Inherit from the Nameless AOSP configuration.
-$(call inherit-product, vendor/everest/config/common_full_phone.mk)
+$(call inherit-product, vendor/blaze/config/common_full_phone.mk)
 
 # Inherit some common Everest stuff
-EXTRA_UDFPS_ANIMATIONS := true
+TARGET_UDFPS_ANIMATIONS := true
 TARGET_HAS_UDFPS := true
 WITH_GAPPS := true
-TARGET_INCLUDE_PIXEL_LAUNCHER := false
+#TARGET_INCLUDE_PIXEL_LAUNCHER := false
 
 # Official-ify
-EVEREST_BUILD_TYPE := OFFICIAL
-EVEREST_MAINTAINER := Dhruvesh
+BLAZE_BUILD_TYPE := OFFICIAL
+BLAZE_MAINTAINER := Dhruvesh
 
 # Bootanimation resolution.
 TARGET_BOOT_ANIMATION_RES := 1080
@@ -32,7 +32,7 @@ PRODUCT_BRAND := Nothing
 PRODUCT_DEVICE := phone1
 PRODUCT_MANUFACTURER := Nothing
 PRODUCT_MODEL := A063
-PRODUCT_NAME := everest_phone1
+PRODUCT_NAME := blaze_phone1
 PRODUCT_SYSTEM_DEVICE := Spacewar
 PRODUCT_SYSTEM_NAME := Spacewar
 
